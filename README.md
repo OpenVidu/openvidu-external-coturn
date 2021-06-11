@@ -24,7 +24,7 @@ Also, you will need to open these ports:
 4. If an application is running in one of the above mentioned ports, the deployment will not work as it is intended. All of these ports must be available for this deployment.
 
 
-# Installation
+# 2. Installation
 
 1. SSH into the machine you will deploy coturn
 
@@ -48,7 +48,7 @@ cd openvidu-external-coturn
 
 Now you have your Coturn prepared to listening at standard SSL port 443.
 
-# OpenVidu browser configuration
+# 3. OpenVidu browser configuration
 
 Every time the instance of `OpenVidu` is instanciated in your frontend app using `openvidu-browser` you need to configure to use the STUN/TURN server we've configured:
 

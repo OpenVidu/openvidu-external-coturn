@@ -27,7 +27,7 @@ prepare_config_files() {
     echo "Preparing configuration files..."
 
     # Load environment variables
-    export "$(grep -v '^#' .env | xargs)"
+    export $(grep -v '^#' .env | xargs)
 
     # Check all required variables
     [[ -n "${LETSENCRYPT_EMAIL}" ]] || fatal_error "LETSENCRYPT_EMAIL must be defined"

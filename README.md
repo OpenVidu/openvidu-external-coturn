@@ -35,7 +35,7 @@ cd /opt
 git clone https://github.com/OpenVidu/openvidu-external-coturn.git
 cd openvidu-external-coturn
 ```
-3. Fill in the file `/opt/openvidu-external-coturn/.env` file these environment variables:
+3. Fill in the file `/opt/openvidu-external-coturn/.env` these environment variables:
 - `COTURN_DOMAIN_NAME`: The domain which is pointing to the public ip of the machine.
 - `LETSENCRYPT_EMAIL`: The email you want to use for letsencrypt
 - `TURN_USERNAME`: Turn username fixed credential

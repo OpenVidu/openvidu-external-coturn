@@ -41,12 +41,12 @@ prepare_config_files() {
 if ! command -v docker &> /dev/null
 then
     echo "'docker' could not be found. You need to install 'docker' and 'docker-compose'"
-    exit
+    exit 1
 fi
 if ! command -v docker-compose &> /dev/null
 then
     echo "'docker-compose' could not be found. You need to install 'docker' and 'docker-compose'"
-    exit
+    exit 1
 fi
 
 OPTION=$1

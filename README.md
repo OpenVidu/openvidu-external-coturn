@@ -52,7 +52,7 @@ Now you have your Coturn prepared to listening at standard SSL port 443.
 
 Every time the instance of `OpenVidu` is instanciated in your frontend app using `openvidu-browser` you need to configure to use the STUN/TURN server we've configured:
 
-```
+```js
 // This openvidu instance should be somewhere in your app
 let openvidu = new OpenVidu()
 

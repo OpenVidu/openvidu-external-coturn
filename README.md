@@ -47,6 +47,21 @@ cd openvidu-external-coturn
 ./openvidu_coturn --start
 ```
 
+Don't worry about some coturn errors in the log. Coturn is too verbose by default but most errors are not important.
+The important thing is that you see this kind of logs:
+- Certificates loaded:
+```
+0: : <SSL_TLS_DTLS_VERSION>: Certificate file found: /etc/letsencrypt/live/<COTURN_DOMAIN_NAME>/cert.pem
+...
+0: : <SSL_TLS_DTLS_VERSION>: Certificate file found: /etc/letsencrypt/live/<COTURN_DOMAIN_NAME>/privkey.pem
+```
+
+- Listener logs information:
+```
+IPv4. ... listener opened on : 0.0.0.0:443
+```
+
+
 Now you have your Coturn prepared to listening at standard SSL port 443.
 
 # 3. OpenVidu browser configuration

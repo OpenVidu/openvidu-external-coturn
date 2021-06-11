@@ -80,7 +80,7 @@ openvidu.setAdvancedConfiguration({
 });
 ```
 
-Obviously you need to replace:
-- `COTURN_DOMAIN_NAME`: the domain name you're using for your Coturn server.
+In this code you need to replace:
+- `COTURN_DOMAIN_NAME`: the domain name you are using for your Coturn server.
 - `TURN_USERNAME`: Username fixed credential
 - `TURN_PASSWORD`: Password fixes credential

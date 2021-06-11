@@ -54,11 +54,11 @@ Every time the instance of `OpenVidu` is instanciated in your frontend app using
 
 ```js
 // This openvidu instance should be somewhere in your app
-let openvidu = new OpenVidu()
+let openvidu = new OpenVidu();
 
 // This is the important part, where we're configuring the new STUN/TURN deployment
-let turnUsername = <TURN_USERNAME>
-let turnCredential = <TURN_PASSWORD>
+let turnUsername = <TURN_USERNAME>;
+let turnCredential = <TURN_PASSWORD>;
 openvidu.setAdvancedConfiguration({
     iceServers: [
         {

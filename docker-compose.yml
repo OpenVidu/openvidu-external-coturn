@@ -30,7 +30,7 @@ services:
     certbot:
         build: ./docker/certbot-coturn
         image: certbot-coturn
-        container_name: coturn
+        container_name: certbot-coturn
         restart: always
         ports:
             # This port is necessary to verify domain with letsencrypt

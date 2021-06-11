@@ -1,0 +1,74 @@
+#!/bin/bash
+echo_help () {
+    echo "coturn help"
+    echo "Examples: "
+    echo "  - ./openvidu_coturn --start"
+    echo "      Start coturn service"
+    echo ""
+    echo "  - ./openvidu_coturn --stop"
+    echo "      Stop coturn service"
+    echo ""
+    echo "  - ./openvidu_coturn --restart"
+    echo "      Restart coturn service"
+    echo ""
+    echo "  - ./openvidu_coturn --logs"
+    echo "      Follow all logs"
+    echo ""
+}
+
+fatal_error() {
+    printf "\n     =======¡ERROR!======="
+    printf "\n     %s" "$1"
+    printf "\n"
+    exit 1
+}
+
+prepare_config_files() {
+    echo "Preparing configuration files..."
+
+    # Load environment variables
+    export "$(grep -v '^#' .env | xargs)"
+
+    # Check all required variables
+    [[ -n "${LETSENCRYPT_EMAIL}" ]] || fatal_error "LETSENCRYPT_EMAIL must be defined"
+    [[ -n "${COTURN_DOMAIN_NAME}" ]] || fatal_error "COTURN_DOMAIN_NAME must be defined"
+    [[ -n "${TURN_USERNAME}" ]] || fatal_error "TURN_USERNAME must be defined"
+    [[ -n "${TURN_PASSWORD}" ]] || fatal_error "TURN_PASSWORD must be defined"
+
+}
+
+OPTION=$1
+
+if [[ "${OPTION}" == "--start" ]]; then
+    echo ""
+    echo "==========================================="
+    echo "Starting Coturn"
+    echo "==========================================="
+    echo ""
+    prepare_config_files || exit 1
+
+    docker-compose up -d certbot || exit 1
+    until [ -f "${PWD}"/certbot/etc/letsencrypt/live/"${COTURN_DOMAIN_NAME}"/cert.pem ]
+    do
+        sleep 5
+    done
+    docker-compose up -d coturn || exit 1
+    docker-compose logs -f
+
+elif [[ "${OPTION}" == "--stop" ]]; then
+    docker-compose down || exit 1
+elif [[ "${OPTION}" == "--restart" ]]; then
+    export "$(grep -v '^#' .env | xargs)"
+    docker-compose down || exit 1
+    docker-compose up -d certbot || exit 1
+    until [ -f "${PWD}"/certbot/etc/letsencrypt/live/"${COTURN_DOMAIN_NAME}"/cert.pem ]
+    do
+        sleep 5
+    done
+    docker-compose up -d coturn || exit 1
+    docker-compose logs -f
+elif [[ "${OPTION}" == "--logs" ]]; then
+    docker-compose logs -f
+else
+    echo_help
+fi

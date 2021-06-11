@@ -51,3 +51,6 @@ services:
             - --email=${LETSENCRYPT_EMAIL}
             - --agree-tos
             - --domain=${COTURN_DOMAIN_NAME}
+        logging:
+            options:
+                max-size: "${DOCKER_LOGS_MAX_SIZE:-100M}"

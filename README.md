@@ -11,6 +11,7 @@ You need an individual Linux machine which should have:
 1. A **public IP**
 2. A **FQDN pointing to this public IP**. No proxys or anything else, just a simple domain/subdomain with a registar of type A pointing to its public IP.
 3. Recommended requirements: 4 CPUs and 4 GB of RAM. This is a generous setup, it depends of your use case. The more people using relay connections, the more consumption it will have.
+4. **Docker** and **docker-compose** installed.
 
 Also, you will need to open these ports:
 ![Inbound rules](docs/images/inbound_ports.png)

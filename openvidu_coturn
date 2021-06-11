@@ -37,6 +37,18 @@ prepare_config_files() {
 
 }
 
+# Dependencies check
+if ! command -v docker &> /dev/null
+then
+    echo "'docker' could not be found. You need to install 'docker' and 'docker-compose'"
+    exit
+fi
+if ! command -v docker-compose &> /dev/null
+then
+    echo "'docker-compose' could not be found. You need to install 'docker' and 'docker-compose'"
+    exit
+fi
+
 OPTION=$1
 
 if [[ "${OPTION}" == "--start" ]]; then

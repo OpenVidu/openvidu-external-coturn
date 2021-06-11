@@ -72,12 +72,7 @@ elif [[ "${OPTION}" == "--stop" ]]; then
 elif [[ "${OPTION}" == "--restart" ]]; then
     export "$(grep -v '^#' .env | xargs)"
     docker-compose down || exit 1
-    docker-compose up -d certbot || exit 1
-    until [ -f "${PWD}"/certbot/etc/letsencrypt/live/"${COTURN_DOMAIN_NAME}"/cert.pem ]
-    do
-        sleep 5
-    done
-    docker-compose up -d coturn || exit 1
+    docker-compose up || exit 1
     docker-compose logs -f
 elif [[ "${OPTION}" == "--logs" ]]; then
     docker-compose logs -f

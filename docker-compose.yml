@@ -16,6 +16,7 @@ services:
             - --listening-ip=0.0.0.0
             - --external-ip=$$(detect-external-ip)
             - --listening-port=443
+            - --tls-listening-port=443
             - --min-port=${MIN_PORT:-40000}
             - --max-port=${MAX_PORT:-65535}
             - --log-file=stdout

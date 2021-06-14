@@ -9,6 +9,19 @@ trap exit_func TERM INT
 export CRONTIME="${CRONTIME:-12h}"
 export COTURN_CONTAINER_NAME="${COTURN_CONTAINER_NAME:-coturn}"
 
+check_coturn_container() {
+    while :; do
+        if ! docker ps | grep "${COTURN_CONTAINER_NAME:-coturn}" | grep "coturn/coturn"; then
+                echo "Restarting ${COTURN_CONTAINER_NAME:-coturn}"
+                docker restart "${COTURN_CONTAINER_NAME:-coturn}"
+        else
+                echo "${COTURN_CONTAINER_NAME:-coturn} is running"
+        fi
+        sleep 1
+    done;
+}
+check_coturn_container &
+
 while :; do
     certbot "$@";
     chmod 777 -R /etc/letsencrypt;

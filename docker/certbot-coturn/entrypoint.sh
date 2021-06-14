@@ -17,7 +17,7 @@ check_coturn_container() {
         else
                 echo "${COTURN_CONTAINER_NAME:-coturn} is running"
         fi
-        sleep 1
+        sleep 5
     done;
 }
 check_coturn_container &

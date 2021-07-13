@@ -66,7 +66,7 @@ Now you have your Coturn prepared to listening at standard SSL port 443.
 
 # 3. Check your Coturn (STUN/TURN) server instalation
 
-To ensure you external coturn is working correctly, you can test it with [Trickle Ice](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/):
+To ensure your external coturn is working correctly, you can test it with [Trickle Ice](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/):
 
 ![Trickle Ice Test](docs/images/trickle-ice-test.png)
 

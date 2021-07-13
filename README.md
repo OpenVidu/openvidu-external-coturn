@@ -64,7 +64,16 @@ IPv4. ... listener opened on : 0.0.0.0:443
 
 Now you have your Coturn prepared to listening at standard SSL port 443.
 
-# 3. OpenVidu browser configuration
+# 3. Check your Coturn (STUN/TURN) server instalation
+
+To ensure you external coturn is working correctly, you can test it with [Trickle Ice](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/):
+
+![Trickle Ice Test](docs/images/trickle-ice-test.png)
+
+ correct setup should return to you this in Chrome browser:
+
+![Trickle Ice Result](docs/images/trickle-ice-result.png)
+# 4. OpenVidu browser configuration
 
 Every time the instance of `OpenVidu` is instanciated in your frontend app using `openvidu-browser` you need to configure to use the STUN/TURN server we've configured:
 

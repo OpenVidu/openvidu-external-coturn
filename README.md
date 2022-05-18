@@ -2,7 +2,7 @@
 
 :warning: :warning: :warning: **WARNING** :warning: :warning: :warning:
 
-> This repository is deprecated in favor of this guide to deploy a external Coturn service to allow users behind firewalls using port 443 with SSL (working for OpenVidu >= 2.21.0): 
+> This repository is deprecated in favor of this guide to deploy an external Coturn service to allow users behind firewalls using port 443 with SSL (working for OpenVidu >= 2.21.0): 
 > https://docs.openvidu.io/en/stable/deployment/allow-users-behind-firewalls/
 > 
 > If you are using version < 2.21.0, this repository and this guide still valid to you, but our recommendation is to update to the latest version and use the official guide from the documentation

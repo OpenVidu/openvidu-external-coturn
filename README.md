@@ -1,5 +1,14 @@
 # Coturn deployment with SSL at port 443
 
+:warning: :warning: :warning: **WARNING** :warning: :warning: :warning:
+
+> This repository is deprecated in favor of this guide to deploy a external Coturn service to allow users behind firewalls using port 443 with SSL (working for OpenVidu >= 2.21.0): 
+> https://docs.openvidu.io/en/stable/deployment/allow-users-behind-firewalls/
+> 
+> If you are using version < 2.21.0, this repository and this guide still valid to you, but our recommendation is to update to the latest version and use the official guide from the documentation
+
+:warning: :warning: :warning: **WARNING** :warning: :warning: :warning:
+
 This Coturn is an automation to deploy a (STUN/TURN server) deployment listening at port 443 with an SSL/TLS Letsencrypt certificate. This Coturn (STUN/TURN server) deployment will be prepared to work with strict firewalls.
 
 The process to install and configure it for OpenVidu is very simple. You just need to follow the next instructions.
